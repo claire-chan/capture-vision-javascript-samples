@@ -155,7 +155,7 @@
             // Open camera and start scanning single barcode.
             await cameraEnhancer.open();
             //await cvRouter.startCapturing(SCAN_TEMPLATES[mode]);
-            await cvRouter.startCapturing(RecognizeNumbersAndLetters);
+            await cvRouter.startCapturing("RecognizeNumbersAndLetters");
             // By default, cameraEnhancer captures grayscale images to optimize performance.
             // To capture RGB Images, we set the Pixel Format to EnumImagePixelFormat.IPF_ABGR_8888
             cameraEnhancer.setPixelFormat(Dynamsoft.Core.EnumImagePixelFormat.IPF_ABGR_8888);
