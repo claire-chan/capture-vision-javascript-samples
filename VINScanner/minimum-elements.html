@@ -57,7 +57,7 @@
           x: 10,
           y: 40,
           width: 80,
-          height: 20,
+          height: 10,
           isMeasuredInPercentage: true,
         });
 
@@ -66,12 +66,12 @@
         //await cvRouter.initSettings("./template.json");
 
         // Filter out unchecked and duplicate results.
-        const filter = new Dynamsoft.Utility.MultiFrameResultCrossFilter();
+        //const filter = new Dynamsoft.Utility.MultiFrameResultCrossFilter();
         //filter.enableResultCrossVerification("barcode", true); // Filter out unchecked barcodes.
         //filter.enableResultDeduplication("barcode", true); // Filter out duplicate barcodes within 3 seconds.
-        filter.enableResultCrossVerification("text_line", true); // Filter out unchecked text lines
-        filter.enableResultDeduplication("text_line", true); // Filter out duplicate text lines within 3 seconds
-        await cvRouter.addResultFilter(filter);
+        //filter.enableResultCrossVerification("text_line", true); // Filter out unchecked text lines
+        //filter.enableResultDeduplication("text_line", true); // Filter out duplicate text lines within 3 seconds
+        //await cvRouter.addResultFilter(filter);
 
         // Define the result receiver for the solution
         const resultReceiver = new Dynamsoft.CVR.CapturedResultReceiver();
@@ -92,12 +92,13 @@
             const vinString = resultType === "Text" ? textLineResult[0]?.text : barcodeResult[0]?.text;
             // If a parsed result is obtained, use it to render the result page
             if (parsedResults) {
-              const parsedVIN = formatVin(parsedResults[0]);
+              //const parsedVIN = formatVin(parsedResults[0]);
 
-              const resultContent = `Scanned by ${resultType}\nVIN: ${vinString}\n${parsedVIN}`;
+              //const resultContent = `Scanned by ${resultType}\nVIN: ${vinString}\n${parsedVIN}`;
+              const resultContent = `Scanned by ${resultType}\n: ${vinString}\n`;
               resultsContainer.innerText = resultContent;
             } else {
-              alert(`Failed to parse the content.`);
+              //alert(`Failed to parse the content.`);
               const resultContent = `Scanned by ${resultType}\nVIN: ${vinString}`;
               resultsContainer.innerText = resultContent;
             }
