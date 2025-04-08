@@ -63,7 +63,7 @@
 
         cvRouter.setInput(cameraEnhancer);
         // Set parameters to read VIN through DLR, DBR, and DCP
-        await cvRouter.initSettings("./template.json");
+        //await cvRouter.initSettings("./template.json");
 
         // Filter out unchecked and duplicate results.
         const filter = new Dynamsoft.Utility.MultiFrameResultCrossFilter();
@@ -155,7 +155,7 @@
             // Open camera and start scanning single barcode.
             await cameraEnhancer.open();
             //await cvRouter.startCapturing(SCAN_TEMPLATES[mode]);
-            await cvRouter.startCapturing("ReadSingleBarcode");
+            await cvRouter.startCapturing("RecognizeNumbersAndLetters");
             // By default, cameraEnhancer captures grayscale images to optimize performance.
             // To capture RGB Images, we set the Pixel Format to EnumImagePixelFormat.IPF_ABGR_8888
             cameraEnhancer.setPixelFormat(Dynamsoft.Core.EnumImagePixelFormat.IPF_ABGR_8888);
