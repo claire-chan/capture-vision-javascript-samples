@@ -67,8 +67,8 @@
 
         // Filter out unchecked and duplicate results.
         const filter = new Dynamsoft.Utility.MultiFrameResultCrossFilter();
-        filter.enableResultCrossVerification("barcode", true); // Filter out unchecked barcodes.
-        filter.enableResultDeduplication("barcode", true); // Filter out duplicate barcodes within 3 seconds.
+        //filter.enableResultCrossVerification("barcode", true); // Filter out unchecked barcodes.
+        //filter.enableResultDeduplication("barcode", true); // Filter out duplicate barcodes within 3 seconds.
         filter.enableResultCrossVerification("text_line", true); // Filter out unchecked text lines
         filter.enableResultDeduplication("text_line", true); // Filter out duplicate text lines within 3 seconds
         await cvRouter.addResultFilter(filter);
@@ -154,7 +154,8 @@
 
             // Open camera and start scanning single barcode.
             await cameraEnhancer.open();
-            await cvRouter.startCapturing(SCAN_TEMPLATES[mode]);
+            //await cvRouter.startCapturing(SCAN_TEMPLATES[mode]);
+            await cvRouter.startCapturing(RecognizeNumbersAndLetters);
             // By default, cameraEnhancer captures grayscale images to optimize performance.
             // To capture RGB Images, we set the Pixel Format to EnumImagePixelFormat.IPF_ABGR_8888
             cameraEnhancer.setPixelFormat(Dynamsoft.Core.EnumImagePixelFormat.IPF_ABGR_8888);
